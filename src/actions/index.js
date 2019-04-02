@@ -1,8 +1,8 @@
 import * as types from '../constants/ActionTypes'
 
-const nextPeopleId = 0
+let nextPeopleId = 0
 
-export const addMessage = (people) => ({
+export const addPeople = (people) => ({
   type: types.ADD_PEOPLE,
   id: nextPeopleId++,
   people

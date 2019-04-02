@@ -1,30 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Flex } from 'rebass';
-import { Root } from './styled';
+import { PeopleAdd, Input } from './styled';
 
-const AddPeople = (props) => (
-  <section id="new-message">
-      <input
-      onKeyPress={(e) => {
-      if (e.key === 'Enter') {
-        // eslint-disable-next-line no-undef
-        props.dispatch(input.value, 'Me')
-        // eslint-disable-next-line no-undef
-        input.value = ''
-      }
-    }}
+const AddPeople = ({ value, change, press, createPeople }) => (
+  <div>
+    <Input
       type="text"
-      ref={(node) => {
-      // eslint-disable-next-line no-undef
-      input = node
-    }}
+      value={value}
+      onChange={change}
+      onKeyPress={press}
     />
-  </section>
+    <PeopleAdd
+      onClick={createPeople}
+    >
+      +
+    </PeopleAdd>
+  </div>
 );
 
 AddPeople.propTypes = {
-  dispatch: PropTypes.func.isRequired
+  change: PropTypes.func.isRequired,
+  press: PropTypes.func.isRequired,
+  createPeople: PropTypes.func.isRequired
 }
 
 export default AddPeople

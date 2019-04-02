@@ -1,17 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Flex } from 'rebass';
-import { Root } from './styled';
+import {
+  PeopleItem,
+  PeopleItemText,
+  PeopleItemDelete,
+} from './styled';
 
-const People = ({ people }) => (
-  <div className="ToDoItem">
-    <p className="ToDoItem-Text">{people}</p>
-    <button className="ToDoItem-Delete">-</button>
-  </div>
+const People = ({ name, deletePeople }) => (
+  <PeopleItem>
+    <PeopleItemText>
+      {name}
+    </PeopleItemText>
+    <PeopleItemDelete
+      onClick={deletePeople}
+    >
+      -
+    </PeopleItemDelete>
+  </PeopleItem>
 );
 
 People.propTypes = {
-  people: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  deletePeople: PropTypes.func.isRequired
 }
 
 export default People
