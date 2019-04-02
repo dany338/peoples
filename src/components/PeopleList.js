@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types'
+import { FormattedMessage } from 'react-intl';
 import AddPeople from './AddPeople';
 import People from './People';
+import logo from '../logo.svg';
+
 import {
   PeopleMain,
   PeopleContainer,
@@ -11,7 +14,7 @@ import {
   ImgLogo,
 } from './styled';
 
-const PeopleList = ({logo}) => {
+const PeopleList = () => {
   const [people, setPeople] = useState('');
   const [peoples, setPeoples] = useState([{name: 'chris bolton'}]);
 
@@ -47,7 +50,10 @@ const PeopleList = ({logo}) => {
       <ImgLogo src={logo} title="React Logo - App Peoples"/>
       <PeopleHeader>
         <Content width={1}>
-          React Peoples
+          <FormattedMessage
+            id="Home.welcome"
+            defaultMessage="Welcome Peoples"
+          />
         </Content>
       </PeopleHeader>
       <PeopleContainer>
